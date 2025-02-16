@@ -1,17 +1,21 @@
 import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Home from './Landingpage/home';
-import Login from './Auth/login'; 
-import './App.css'
+import Home from './Landingpage/Home';
+import Login from './Auth/Login'; 
+import Register from './Auth/register';
+import Bot from './chatbot/bot';
+import './App.css';
 
 function App() {
-
   return (
     <BrowserRouter>
       <Routes>
-        <Route path='/home' element={<Home />} />
+        <Route path='/' element={<Home />}/>
+        <Route path='/home' element={<Home />}/>
         <Route path='/login' element={<Login />}/>
-      </Routes>      
+        <Route path='/register' element={<Register/>}/>
+        <Route path='/bot' element={<Bot/>}/>
+      </Routes>
     </BrowserRouter>
   )
 }

@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
-import { auth, db } from './firebase';
+import { auth, db } from '../Auth/firebase';
 import { setDoc, doc } from 'firebase/firestore';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import './style.css';
 
 function Register() {
     const [email, setEmail] = useState("");
@@ -23,7 +22,8 @@ function Register() {
                 await setDoc(doc(db, "Users", user.uid),{
                     email: user.email,
                     name: name,
-                    surname: surname
+                    surname: surname,
+                    phone: phone
                 });
             }
             console.log("User registered successfully");
